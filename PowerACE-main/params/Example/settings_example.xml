@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE agents SYSTEM "../agents.dtd">
+<agents>
+	<agentclass name="simulations.initialization.Settings" priority="High">
+		<static name="startYear" value="2023" class="java.lang.Integer" />
+		<static name="startYearPlots" value="2023" class="java.lang.Integer" />
+
+		<static name="totalDays" value="36*365" class="java.lang.Integer" />
+		<static name="name" value="Multiruns" class="java.lang.String" />
+		<static name="referenceYear" value="2015" class="java.lang.Integer" />
+		<static name="multiRunsFile" value="multiruns.xml" class="java.lang.String" />
+		<static name="multiRunName" value="VerSEAS" class="java.lang.String" />
+
+		<static name="adjustWeekend" value="true" class="java.lang.Boolean" />
+		<static name="aggregatePlantBid" value="true" class="java.lang.Boolean" />
+		<static name="capFilter" value="1" class="java.lang.Integer" />
+		<static name="carbonPenalty" value="100" class="java.lang.Float" />
+
+		<static name="carbonPriceScenario" value="CarbonTableName" class="java.lang.String" />
+		<static name="cumulatedBids" value="false" class="java.lang.Boolean" />
+		<static name="inflation" value="0.02" class="java.lang.Double" />
+		<static name="investmentHorizonMax" value="20" class="java.lang.Integer" />
+		<static name="investmentsYearStart" value="2023" class="java.lang.Integer" />
+		<static name="interconnectionDataScenario" value="NTCTableName" class="java.lang.String" />
+		<static name="languageSettings" value="en" class="java.lang.String" />
+		<static name="logAnnualInvestment" value="false" class="java.lang.Boolean" />
+		<static name="logBenchmark" value="true" class="java.lang.Boolean" />
+		<static name="logBids" value="false" class="java.lang.Boolean" />
+		<static name="logHourlyGeneration" value="true" class="java.lang.Boolean" />
+		<static name="logInstalledCapacity" value="true" class="java.lang.Boolean" />
+		<static name="logPricesStructure" value="true" class="java.lang.Boolean" />
+		<static name="logProductionLimitation" value="false" class="java.lang.Boolean" />
+		<static name="logPumpStorage" value="false" class="java.lang.Boolean" />
+		<static name="logPumpStorageDetailed" value="false" class="java.lang.Boolean" />
+		<static name="logRenewableFullLoadHours" value="false" class="java.lang.Boolean" />
+		<static name="logRenewableLoad" value="true" class="java.lang.Boolean" />
+		<static name="logSortedResPlants" value="false" class="java.lang.Boolean" />
+		<static name="logSupplyData" value="true" class="java.lang.Boolean" />
+		<static name="logMeritOrder" value="true" class="java.lang.Boolean" />
+		<static name="logLossOperations" value="false" class="java.lang.Boolean" />
+		<static name="markup" value="true" class="java.lang.Boolean" />
+		<static name="mainRegSupportSceme" value="0" class="java.lang.Short" />
+		<static name="marketClearingPriceSensitive" value="true" class="java.lang.Boolean" />
+		<static name="nuclearPhaseOut" value="true" class="java.lang.Boolean" />
+		<static name="numberOfCores" value="48" class="java.lang.Integer" />
+		<static name="naturalGasPhaseOut" value="true" class="java.lang.Boolean" />
+
+		<static name="operationMaintenanceScenarioFixed" value="ScenarioName" class="java.lang.String" />
+		<static name="operationMaintenanceScenarioVar" value="ScenarioName" class="java.lang.String" />
+		<static name="plantAvailabilityScenario" value="availability" class="java.lang.String" />
+		<static name="resCapacityScenario" value="RESCapacityScenarioName" class="java.lang.String" />
+		<static name="startupCostsScenario" value="zero" class="java.lang.String" />
+
+		<static name="strategicStartUp" value="0.2" class="java.lang.Float" />
+		<static name="strategicStartUpCoal" value="0.2" class="java.lang.Float" />
+		<static name="strategicStartUpGuD" value="0.2" class="java.lang.Float" />
+		<static name="staticExchange" value="tbl_StaticExchangeScenario" class="java.lang.String" />
+		<static name="taxScenario" value="2" class="java.lang.Short" />
+		<static name="technologyOptions" value="tbl_technologyOptionsName" class="java.lang.String" />
+		<static name="useInstituteDatabase" value="true" class="java.lang.Boolean" />
+		<agent />
+	</agentclass>
+
+	<agentclass name="simulations.MarketArea" priority="High">
+		<agent country="Germany">
+
+			<!-- MOve to Agents_DE -->
+			<property name="availabilityScenario" value="PowerTec" class="java.lang.String" />
+			<property name="availabilityScenarioId" value="13" class="java.lang.Integer" />
+
+
+			<property name="capacityMarketRenewablesFeedinExact" value="false" class="java.lang.Boolean" />
+			<property name="calculateRenewableFromProduction" value="true" class="java.lang.Boolean" />
+			<property name="calculateTotalDemandFromYealySum" value="true" class="java.lang.Boolean" />
+
+			<property name="dailyFuelPrice" value="true" class="java.lang.Boolean" />
+			<property name="decommissionActive" value="false" class="java.lang.Boolean" />
+
+			<property name="decommissionsYearsToShutDown" value="10" class="java.lang.Integer" />
+			<property name="decommissionsYearsOfNegativeProfit" value="6" class="java.lang.Integer" />
+			<property name="yearDecommissionsStart" value="2038" class="java.lang.Integer" />
+
+			<property name="demandSideManagementData" value="application_attributes" class="java.lang.String" />
+
+			<property name="exchangeScenario" value="entsoe" class="java.lang.String" />
+			<property name="fuelPriceScenarioYearly" value="tbl_fuelPriceName" class="java.lang.String" />
+			<property name="fullLoadHoursScenario" value="utilisation_isi_opt_bmu_import_restricted_12336" class="java.lang.String" />
+
+
+			<property name="gridLosses" value="0.0" class="java.lang.Float" />
+			<property name="interestRate" value="0.08" class="java.lang.Float" />
+			<property name="marketCoupling" value="true" class="java.lang.Boolean" />
+			<property name="name" value="Germany" class="java.lang.String" />
+
+			<property name="nukeAvailabilityReferenceYear" value="2018" class="java.lang.Integer" />
+			<!-- Not used anymore with new db -->
+			<property name="powerPlantData" value="tbl_powerplantName" class="java.lang.String" />
+			<property name="priceForwardMaximum" value="500.0f" class="java.lang.Float" />
+
+			<property name="pumpStorageData" value="tbl_pumpStoragePlants" class="java.lang.String" />
+
+			<property name="renewableScenario" value="verseas_central" class="java.lang.String" />
+			<property name="renewableScenarioYear" value="2017" class="java.lang.Integer" />
+			<property name="reservePriceScenario" value="0" class="java.lang.Short" />
+
+
+			<property name="settingsFileName" value="agents_DE.xml" class="java.lang.String" />
+			<property name="strategicReserveActive" value="true" class="java.lang.Boolean" />
+
+			<property name="electricityTotalDemandTable" value="tbl_verseas_demand_testlauf" class="java.lang.String" />
+			<property name="totalDemandScenarioHistorical" value="entsoe_load_hourly_format_additive" class="java.lang.String" />
+			<property name="weatherDataset" value="2008_isi_restricted_12336" class="java.lang.String" />
+			<property name="weatherYearDemand" value="2010" class="java.lang.Integer" />
+
+			<property name="shutDownYearCoal" value="2030" class="java.lang.Integer" />
+		</agent>
+
+
+	</agentclass>
+</agents>

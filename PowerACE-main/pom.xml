@@ -1,0 +1,238 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>edu.kit.iip.PowerACE</groupId>
+	<artifactId>PowerACE</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>FrancePaper</name>
+	<description>PowerACE current pom.xml</description>
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<release>18</release>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<organization>
+		<name>IIP</name>
+		<url>https://www.iip.kit.edu/</url>
+	</organization>
+	<scm>
+		<url>https://git.scc.kit.edu/iip-power-ace/powerace/</url>
+	</scm>
+	<developers>
+		<developer>
+			<name>Institute for Industrial Production - Karlruhe Institute of Techology</name>
+			<email>PowerACE@iip.kit.edu</email>
+		</developer>
+
+	</developers>
+	<properties>
+		<logback.version>1.4.8</logback.version>
+		<log4j.version>2.20.0</log4j.version>
+		<gurobi.version>10.0.1</gurobi.version>
+		<gurobi.path>C:\gurobi1001\win64\lib\gurobi.jar</gurobi.path>
+		<HikariCP.version>5.0.1</HikariCP.version>
+		<poi.version>5.2.3</poi.version>
+		<jdom2.version>2.0.6.1</jdom2.version>
+		<mysql.version>8.0.33</mysql.version>
+		<mail.version>2.0.2</mail.version>
+		<jsoup.version>1.16.1</jsoup.version>
+		<systems.version>2.1</systems.version>
+		<unit.version>2.2</unit.version>
+		<commons.version>3.12.0</commons.version>
+		<javaplot.version>0.5.0</javaplot.version>
+		<fastutil.version>8.5.12</fastutil.version>
+	</properties>
+	<!-- REPOSITORIES -->
+	<!-- Particularly needed for geotools -->
+	<repositories>
+		<repository>
+			<id>osgeo</id>
+			<name>OSGeo Release Repository</name>
+			<url>https://repo.osgeo.org/repository/release/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>osgeo-snapshot</id>
+			<name>OSGeo Snapshot Repository</name>
+			<url>https://repo.osgeo.org/repository/snapshot/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+	</repositories>
+	<!-- DEPENDENCIES -->
+	<dependencies>
+		<!-- Local dependencies -->
+
+		<dependency>
+			<groupId>gurobi</groupId>
+			<artifactId>gurobi</artifactId>
+			<version>${gurobi.version}</version>
+			<scope>system</scope>
+			<systemPath>${gurobi.path}</systemPath>
+		</dependency>
+		<!-- remote dependencies -->
+		<!-- Add log4j manually, due to major security issue -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+		<!-- Logger (logback) logback-classic-1.1.7.jar logback-classic-1.1.7-sources.jar 
+			logback-core-1.1.7.jar logback-core-1.1.7-sources.jar require also slf4j-api-1.7.x.jar 
+			slf4j requries log4j -->
+		<!-- use pure java classes in future -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+		<!-- MySQL-Pool (Hikari CP). require also slf4j, excluded here due to import 
+			via logback. -->
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>${HikariCP.version}</version>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-full -->
+		<!-- poi (Aapache poi, for logging Excel XSLX-Files) poi-x.x-YYYYMMDD.jar 
+			poi-ooxml-x.x-YYYYMMDD.jar poi-ooxml-schemas-x.x-YYYYMMDD.jar Requires: xmlbeans-2.6.0.jar, 
+			commons-collectinsX.jar -->
+		<!-- Mathematical Operations commons-math3-3.2.jar In order to fit a curve 
+			to points see DemandBidder. Is included in poi -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi.version}</version>
+			<scope>compile</scope>
+			<exclusions>
+
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.jdom/jdom2 -->
+		<!-- Read XML files -->
+		<dependency>
+			<groupId>org.jdom</groupId>
+			<artifactId>jdom2</artifactId>
+			<version>${jdom2.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<!-- MySQL-Connection (JDBC Driver) -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+		<!-- https://search.maven.org/artifact/jakarta.mail/jakarta.mail-api/2.1.0/jar -->
+		<!-- former https://eclipse-ee4j.github.io/mail/ -->
+		<!-- E-Mail former javax.mail. 1.6.2 -->
+		<!--<dependency>
+			<groupId>jakarta.mail</groupId>
+			<artifactId>jakarta.mail-api</artifactId>
+			<version>2.1.0</version>
+		</dependency>-->
+
+		<dependency>
+			<groupId>org.eclipse.angus</groupId>
+			<artifactId>angus-mail</artifactId>
+			<version>${mail.version}</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+		<!-- jsoup (html parsing for regelleistung.net data download) -->
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>${jsoup.version}</version>
+		</dependency>
+
+
+		<!-- For geo tools-->
+		<!-- https://mvnrepository.com/artifact/si.uom/si-units -->
+		<!-- https://mvnrepository.com/artifact/systems.uom/systems-common -->
+		<dependency>
+			<groupId>systems.uom</groupId>
+			<artifactId>systems-common</artifactId>
+			<version>${systems.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.measure</groupId>
+					<artifactId>unit-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.measure/unit-api -->
+		<dependency>
+			<groupId>javax.measure</groupId>
+			<artifactId>unit-api</artifactId>
+			<version>${unit.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.measure</groupId>
+					<artifactId>unit-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons.version}</version>
+		</dependency>
+		<!-- End Geo Tools -->
+		<!-- https://mvnrepository.com/artifact/com.panayotis.javaplot/javaplot -->
+		<dependency>
+			<groupId>com.panayotis.javaplot</groupId>
+			<artifactId>javaplot</artifactId>
+			<version>${javaplot.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.panayotis.javaplot/svg -->
+		<dependency>
+			<groupId>com.panayotis.javaplot</groupId>
+			<artifactId>svg</artifactId>
+			<version>${javaplot.version}</version>
+		</dependency>
+	</dependencies>
+</project>

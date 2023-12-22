@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE agents SYSTEM "../agents.dtd">
+
+<agents>
+	
+	<!-- MARKET OPERATORS -->
+	<agentclass
+		name="markets.operator.spot.DayAheadMarketOperator">
+		<agent>
+			<property name="HourCallForBids" value="1"
+				class="java.lang.Integer" />
+			<property name="HourResults" value="2"
+				class="java.lang.Integer" />
+			<property name="maximumPriceAllowed" value="3000.00"
+				class="java.lang.Float" />
+			<property name="minimumPriceAllowed" value="-50.00"
+				class="java.lang.Float" />
+		</agent>
+	</agentclass>
+	<!-- Reserve demand based on entos-e transparency data for 2016 -->
+	 
+	<!-- TRADERS -->
+	<agentclass name="markets.trader.spot.supply.SupplyTrader">
+		<global name="fixedCostsMarkUp" value="true"
+			class="java.lang.Boolean" />
+		<global name="threshold" value="0" class="java.lang.Float" />
+		<global name="thresholdUp" value="0" class="java.lang.Float" />
+		<agent>
+			<property name="Name" value="Industry"
+				class="java.lang.String" />
+		</agent>
+		<agent>
+			<property name="Name" value="EVN" class="java.lang.String" />
+		</agent>
+		<agent>
+			<property name="Name" value="Others" class="java.lang.String" />
+		</agent>
+	</agentclass>
+		<agentclass
+		name="markets.trader.spot.hydro.SeasonalStorageTrader">
+		<agent>
+			<property name="Name" value="AXPO" class="java.lang.String" />
+			<!-- From entsoe -->
+			<property name="capacityMax" value="2430.00"
+				class="java.lang.Float" />
+			<property name="efficiency" value="0.7f"
+				class="java.lang.Float" />
+			<property name="minimumProduction" value="0.00"
+				class="java.lang.Float" />
+		</agent>
+	</agentclass>
+	<agentclass
+		name="markets.trader.spot.supply.PeakGenerationTrader">
+		<global name="priceInterruptibleLoad" value="2750"
+			class="java.lang.Float" />
+		<global name="priceValueOfLostLoad" value="3000"
+			class="java.lang.Float" />
+		<global name="shareInterruptibleLoadMaxDemand" value="0.02"
+			class="java.lang.Float" />
+		<agent />
+	</agentclass>
+	<agentclass name="markets.trader.spot.demand.DemandTrader">
+		<agent />
+	</agentclass>
+	<agentclass
+		name="markets.trader.spot.renewable.RenewableTrader">
+		<agent>
+			<property name="dayAheadBiddingPrice" value="0f" class="java.lang.Float" />
+		</agent>
+	</agentclass>
+	<agentclass name="markets.trader.spot.other.ExchangeTrader">
+		<agent />
+	</agentclass>
+	<agentclass name="markets.trader.spot.hydro.PumpStorageTrader">
+		<global name="tradingDayAhead" value="4" class="java.lang.Integer" />
+		<global name="dynamicPriceForecast" value="false" class="java.lang.Boolean" />
+		<global name="usePriceBasedOperation" value="false" class="java.lang.Boolean" />
+		<agent>
+			<property name="Name" value="EVN" class="java.lang.String" />
+		</agent>
+	</agentclass>
+	<!-- OTHER -->
+	<agentclass name="supply.Generator">
+		<global name="dynamicMarkup" value="false"
+			class="java.lang.Boolean" />
+		<global name="gambleMargin" value="0.0" class="java.lang.Float" />
+		<global name="markupScenario" value="17"
+			class="java.lang.Integer" />
+		<agent>
+			<property name="name" value="Industry"
+				class="java.lang.String" />
+		</agent>
+		<agent>
+			<property name="name" value="EVN" class="java.lang.String" />
+		</agent>
+		<agent>
+			<property name="name" value="Others" class="java.lang.String" />
+		</agent>
+	</agentclass>
+	<agentclass name="supply.invest.InvestorNetValue">
+		<global name="interestRate" value="0.08"
+			class="java.lang.Float" />
+		<global name="yearsLongTermPriceForecastEnd" value="6"
+			class="java.lang.Integer" />
+		<global name="yearsLongTermPriceForecastStart" value="1"
+			class="java.lang.Integer" />
+		<global name="MAX_CAPACITY_BUILT" value="3000"
+			class="java.lang.Integer" />
+		<!-- Exclude lignite as investment options -->
+		<agent>
+			<property name="Name" value="Industry"
+				class="java.lang.String" />
+			<property name="UnavailOptionsFuel" value="1,2,3,27"
+				class="java.lang.String" />
+		</agent>
+		<agent>
+			<property name="Name" value="EVN" class="java.lang.String" />
+			<!--<property name="UnavailOptionsFuel" value="1,3,27" class="java.lang.String" />-->
+			<property name="UnavailOptionsFuel" value="1,2,3,27,25,23" class="java.lang.String" />
+		</agent>
+		<agent>
+			<property name="Name" value="Others" class="java.lang.String" />
+			<!-- <property name="UnavailOptionsFuel" value="1,3,27" class="java.lang.String" />-->
+			<property name="UnavailOptionsFuel" value="1,2,3,27,25,23" class="java.lang.String" />
+		</agent>
+	</agentclass>
+
+
+</agents>

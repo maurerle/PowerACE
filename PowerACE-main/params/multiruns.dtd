@@ -1,0 +1,29 @@
+<!ELEMENT runs (run)+>
+<!ELEMENT run (agentclass+)>
+<!ELEMENT agentclass (static*, global*, agent*, property*)>
+<!ELEMENT agent ANY>
+<!ELEMENT static EMPTY>
+<!ELEMENT global EMPTY>
+<!ELEMENT number EMPTY>
+<!ELEMENT country EMPTY>
+<!ELEMENT property EMPTY>
+
+<!ATTLIST agentclass
+    name CDATA #REQUIRED
+    priority (High | Low) "Low">
+<!ATTLIST static
+    name CDATA #REQUIRED
+    value CDATA #REQUIRED
+    class CDATA #REQUIRED>
+<!ATTLIST agent
+	name CDATA  #IMPLIED
+    number CDATA  "1"
+    country (Germany | France | Belgium | Netherlands | Switzerland | Italy | Austria | Czech | Denmark | Poland | Spain | Portugal | Great_Britain | United_Kingdom |Germany_north | Germany_south| Italy_north | Italy_centrenorth | Italy_centresouth | Italy_south | Italy_sic | Italy_sar) #IMPLIED>
+<!ATTLIST property
+    name CDATA #REQUIRED
+    value CDATA #REQUIRED
+    class CDATA #REQUIRED>
+<!ATTLIST global
+    name CDATA #REQUIRED
+    value CDATA #REQUIRED
+    class CDATA #REQUIRED>

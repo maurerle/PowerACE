@@ -1,0 +1,24 @@
+package markets.trader;
+
+public enum TraderType {
+
+	DEMAND,
+	DEMAND_FORWARD,
+	DEMAND_SIDE_MANAGEMENT_SHIFTABLE,
+	EXCHANGE,
+	GRID_OPERATOR,
+	INDUSTRY,
+	POWER_TO_TECHNOLOGY,
+	POWER_TO_HYDROGEN,
+	PUMPED_STORAGE,
+	RENEWABLE,
+	SEASONAL_STORAGE,
+	SUPPLY,
+	SUPPLY_COGENERATION,
+	UNKNOWN;
+
+	public boolean isSupply() {
+		return (this == SUPPLY) || (this == SUPPLY_COGENERATION);
+	}
+
+}

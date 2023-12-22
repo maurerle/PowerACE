@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE paths>
+<MainPaths>
+	<Workspace name="EclipseWorkspacePath" />
+	<Project name="OpenSource" />
+	<Scenarios name="OutputFilesPath" />
+	<xmlFolder name="Example" />
+	<xmlFile name="settings_example.xml" />
+	<counter number="0" />
+	<mailAddress name="xxx" />
+</MainPaths>

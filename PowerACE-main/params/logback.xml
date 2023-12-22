@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<target>System.out</target>
+		<encoder>
+			<pattern>
+				${runCounter} %-100msg - %r - %-5level - [%logger{36}.%M.%t] \(%F:%L\) %n
+			</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>DENY</onMatch>
+			<onMismatch>ACCEPT</onMismatch>
+		</filter>
+	</appender>
+
+	<appender name="STDERROR" class="ch.qos.logback.core.ConsoleAppender">
+		<target>System.err</target>
+		<encoder>
+			<pattern>
+				${runCounter} %-100msg - %r - %-5level - [%logger{36}.%M.%t]				\(%F:%L\) %n
+			</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+	</appender>
+
+	<appender name="INFORMATION"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.dir}/information.log</file>
+		<encoder>
+			<pattern>${runCounter} %d{HH:mm:ss.SSS} - %-5level - %-100msg %throwable{full} [%logger{36}.%M.%L.%t]%n</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFORMATION</level>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${log.dir}/information.%i.log.zip</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>20</maxIndex>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>100MB</maxFileSize>
+		</triggeringPolicy>
+	</appender>
+
+	<appender name="ERROR" class="ch.qos.logback.core.FileAppender">
+		<file>${log.dir}/error.log</file>
+		<encoder>
+			<pattern>${runCounter} %d{HH:mm:ss.SSS} - %-5level - %-100msg				%throwable{full} [%logger{36}.%M.%L.%t]%n</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${log.dir}/erros.%i.log.zip</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>200</maxIndex>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>500MB</maxFileSize>
+		</triggeringPolicy>
+	</appender>
+
+	<appender name="WARNING"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.dir}/warning.log</file>
+		<encoder>
+			<pattern>${runCounter} %d{HH:mm:ss.SSS} - %-5level - %-100msg				%throwable{full} [%logger{36}.%M.%L.%t]%n</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>WARNING</level>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${log.dir}/warning.%i.log.zip</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>20</maxIndex>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>100MB</maxFileSize>
+		</triggeringPolicy>
+	</appender>
+
+	
+
+
+	<logger name="com.zaxxer.hikari" level="INFO" />
+
+	<!-- <appender name="ASYNCSTDOUT" class="ch.qos.logback.classic.AsyncAppender">
+		<appender-ref ref="STDOUT" />
+		<queueSize>51200</queueSize>
+	</appender>
+	<appender name="ASYNCWARN" class="ch.qos.logback.classic.AsyncAppender">
+		<appender-ref ref="WARNING" />
+		<queueSize>51200</queueSize>
+	</appender>
+	
+
+	<appender name="ASYNCERR" class="ch.qos.logback.classic.AsyncAppender">
+		<appender-ref ref="ERROR" />
+		<queueSize>51200</queueSize>
+	</appender>
+
+	<appender name="ASYNCINFO" class="ch.qos.logback.classic.AsyncAppender">
+		<appender-ref ref="INFORMATION" />
+		<queueSize>51200</queueSize>
+	</appender>
+	
+		<appender name="ASYNCERRORCON" class="ch.qos.logback.classic.AsyncAppender">
+		<appender-ref ref="STDERROR" />
+		<queueSize>51200</queueSize>
+	</appender>
+	
+	 <root level="DEBUG"> <appender-ref ref="ASYNCSTDOUT" /> <appender-ref 
+		ref="ASYNCERRORCON" /> <appender-ref ref="ASYNCERR" /> <appender-ref ref="ASYNCINFO" 
+		/> <appender-ref ref="ASYNCWARN" /> </root> -->
+	<root level="DEBUG">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="STDERROR" />
+		<appender-ref ref="ERROR" />
+		<appender-ref ref="INFORMATION" />
+		<appender-ref ref="WARNING" />
+	</root>
+</configuration>
