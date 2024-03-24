@@ -3,7 +3,7 @@
 	<groupId>edu.kit.iip.PowerACE</groupId>
 	<artifactId>PowerACE</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>FrancePaper</name>
+	<name>PowerACE</name>
 	<description>PowerACE current pom.xml</description>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -20,7 +20,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
-					<release>18</release>
+					<release>21</release>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -42,8 +42,7 @@
 	<properties>
 		<logback.version>1.4.8</logback.version>
 		<log4j.version>2.20.0</log4j.version>
-		<gurobi.version>10.0.1</gurobi.version>
-		<gurobi.path>C:\gurobi1001\win64\lib\gurobi.jar</gurobi.path>
+		<gurobi.version>11.0.1</gurobi.version>
 		<HikariCP.version>5.0.1</HikariCP.version>
 		<poi.version>5.2.3</poi.version>
 		<jdom2.version>2.0.6.1</jdom2.version>
@@ -84,16 +83,12 @@
 	</repositories>
 	<!-- DEPENDENCIES -->
 	<dependencies>
-		<!-- Local dependencies -->
-
+		<!-- remote dependencies -->
 		<dependency>
-			<groupId>gurobi</groupId>
+			<groupId>com.gurobi</groupId>
 			<artifactId>gurobi</artifactId>
 			<version>${gurobi.version}</version>
-			<scope>system</scope>
-			<systemPath>${gurobi.path}</systemPath>
 		</dependency>
-		<!-- remote dependencies -->
 		<!-- Add log4j manually, due to major security issue -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>

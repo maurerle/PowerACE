@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
 
 import data.exchange.Capacities;
 import data.storage.PumpStoragePlant;
-import gurobi.GRBException;
+import com.gurobi.gurobi.GRBException;
 import markets.bids.Bid;
 import markets.trader.TraderType;
 import markets.trader.spot.hydro.SeasonalStorageTrader;
