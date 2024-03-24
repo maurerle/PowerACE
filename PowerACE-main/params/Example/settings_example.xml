@@ -29,16 +29,13 @@
 		<static name="logHourlyGeneration" value="true" class="java.lang.Boolean" />
 		<static name="logInstalledCapacity" value="true" class="java.lang.Boolean" />
 		<static name="logPricesStructure" value="true" class="java.lang.Boolean" />
-		<static name="logProductionLimitation" value="false" class="java.lang.Boolean" />
 		<static name="logPumpStorage" value="false" class="java.lang.Boolean" />
 		<static name="logPumpStorageDetailed" value="false" class="java.lang.Boolean" />
 		<static name="logRenewableFullLoadHours" value="false" class="java.lang.Boolean" />
 		<static name="logRenewableLoad" value="true" class="java.lang.Boolean" />
 		<static name="logSortedResPlants" value="false" class="java.lang.Boolean" />
 		<static name="logSupplyData" value="true" class="java.lang.Boolean" />
-		<static name="logMeritOrder" value="true" class="java.lang.Boolean" />
-		<static name="logLossOperations" value="false" class="java.lang.Boolean" />
-		<static name="markup" value="true" class="java.lang.Boolean" />
+		<static name="longMeritOrder" value="true" class="java.lang.Boolean" />
 		<static name="mainRegSupportSceme" value="0" class="java.lang.Short" />
 		<static name="marketClearingPriceSensitive" value="true" class="java.lang.Boolean" />
 		<static name="nuclearPhaseOut" value="true" class="java.lang.Boolean" />
@@ -57,7 +54,6 @@
 		<static name="staticExchange" value="tbl_StaticExchangeScenario" class="java.lang.String" />
 		<static name="taxScenario" value="2" class="java.lang.Short" />
 		<static name="technologyOptions" value="tbl_technologyOptionsName" class="java.lang.String" />
-		<static name="useInstituteDatabase" value="true" class="java.lang.Boolean" />
 		<agent />
 	</agentclass>
 
@@ -69,25 +65,16 @@
 			<property name="availabilityScenarioId" value="13" class="java.lang.Integer" />
 
 
-			<property name="capacityMarketRenewablesFeedinExact" value="false" class="java.lang.Boolean" />
-			<property name="calculateRenewableFromProduction" value="true" class="java.lang.Boolean" />
-			<property name="calculateTotalDemandFromYealySum" value="true" class="java.lang.Boolean" />
-
-			<property name="dailyFuelPrice" value="true" class="java.lang.Boolean" />
 			<property name="decommissionActive" value="false" class="java.lang.Boolean" />
 
 			<property name="decommissionsYearsToShutDown" value="10" class="java.lang.Integer" />
 			<property name="decommissionsYearsOfNegativeProfit" value="6" class="java.lang.Integer" />
 			<property name="yearDecommissionsStart" value="2038" class="java.lang.Integer" />
 
-			<property name="demandSideManagementData" value="application_attributes" class="java.lang.String" />
-
 			<property name="exchangeScenario" value="entsoe" class="java.lang.String" />
 			<property name="fuelPriceScenarioYearly" value="tbl_fuelPriceName" class="java.lang.String" />
 			<property name="fullLoadHoursScenario" value="utilisation_isi_opt_bmu_import_restricted_12336" class="java.lang.String" />
 
-
-			<property name="gridLosses" value="0.0" class="java.lang.Float" />
 			<property name="interestRate" value="0.08" class="java.lang.Float" />
 			<property name="marketCoupling" value="true" class="java.lang.Boolean" />
 			<property name="name" value="Germany" class="java.lang.String" />
