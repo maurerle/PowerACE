@@ -23,6 +23,29 @@
 					<release>21</release>
 				</configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.7.1</version>
+				<configuration>
+				<descriptorRefs>
+					<descriptorRef>jar-with-dependencies</descriptorRef>
+				</descriptorRefs>
+				<archive>
+					<manifest>
+					<mainClass>simulations.PowerMarkets</mainClass>
+					</manifest>
+				</archive>
+				</configuration>
+				<executions>
+				<execution>
+					<id>make-assembly</id> <!-- this is used for inheritance merges -->
+					<phase>package</phase> <!-- bind to the packaging phase -->
+					<goals>
+					<goal>single</goal>
+					</goals>
+				</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 	<organization>
@@ -30,7 +53,7 @@
 		<url>https://www.iip.kit.edu/</url>
 	</organization>
 	<scm>
-		<url>https://git.scc.kit.edu/iip-power-ace/powerace/</url>
+		<url>https://gitlab.kit.edu/kit/iip/opensource/powerace/</url>
 	</scm>
 	<developers>
 		<developer>

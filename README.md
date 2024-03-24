@@ -8,7 +8,12 @@ How to run PowerACE is mentioned in the [Wiki](https://gitlab.kit.edu/kit/iip/op
 
 ## System Requirements
 
-It is recommended to use PowerACE with [JDK 20.X](https://www.oracle.com/java/technologies/javase/jdk20-archive-downloads.html). Additionally, a current installation of [maven](https://maven.apache.org/download.cgi) is required. For solving optimization problems, a [Gurobi](https://www.gurobi.com/) installation is necessary. Detailed information can be found in the [Wiki](https://gitlab.kit.edu/kit/iip/opensource/powerace/-/wikis/home).
+It is recommended to use PowerACE with [JDK 21.X](https://www.oracle.com/java/technologies/javase/jdk20-archive-downloads.html). Additionally, a current installation of [maven](https://maven.apache.org/download.cgi) is required. For solving optimization problems, a [Gurobi](https://www.gurobi.com/) installation is necessary. Detailed information can be found in the [Wiki](https://gitlab.kit.edu/kit/iip/opensource/powerace/-/wikis/home).
+
+# Compilation
+
+Having Maven installed, one can run `mvn compile assembly:single` to create the jar file.
+This can then be run with `java -jar target/PowerACE-0.0.1-SNAPSHOT-jar-with-dependencies.jar`
 
 ## Using PowerACE
 
@@ -23,7 +28,7 @@ To effectively use PowerACE, various types of input data are necessary:
         - hydro power
     - demand 
     - net transfer capacities usage for non-simulated but coupled market areas 
-- net trasfer capacities 
+- net transfer capacities 
 
 ### Result data
 PowerACE provides hourly market results for each simulated market area for every simulated year. These include detailed dispatch data for power plants and spot market prices. Additionally, annual investment decisions are logged, ensuring yearly information about the power plant fleet is available.
